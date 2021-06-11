@@ -1,0 +1,370 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	line-height: 20px;
+}
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+body {
+	font-family: $TYPE_DEFAULT;
+	font-size: 1rem;
+	font-weight: normal;
+	color: $BLACK;
+	-moz-osx-font-smoothing: $FONT_SMOOTHING_MOZ;
+	-webkit-font-smoothing: $FONT_SMOOTHING_WEBKIT;
+	text-rendering: $FONT_SMOOTHING_RENDERING;
+}
+@media screen and (min-width: 550px) {
+	body {
+		background-color: rgba(0, 0, 0, 0.2);
+		padding: 24px;
+	}
+}
+
+.wrapper {
+	margin: auto 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+@media screen and (max-width: 550px) {
+	.wrapper {
+		display: flex;
+		align-items: flex-start;
+	}
+}
+
+/* Modal */
+
+.modal {
+	box-sizing: content-box;
+	width: 400px;
+	padding: 12px 24px;
+	margin: 30px 0;
+	background-color: #fff;
+	border-radius: 2px;
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.085), 0px 0px 20px rgba(0, 0, 0, 0.15);
+
+	&.collapse {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+@media screen and (max-width: 550px) {
+	.modal {
+		width: 100%;
+		margin: 24px 0;
+		padding: 12px 30px;
+		box-shadow: none;
+	}
+}
+
+.modal__form {
+	display: flex;
+	flex-direction: column;
+}
+
+.modal__header {
+	color: $DARK_GREY;
+	margin-top: 12px;
+
+	.header__title {
+		font-size: 1.75rem;
+		font-weight: 900;
+		padding: 0;
+		margin-top: 12px;
+		margin-bottom: 16px;
+		line-height: 20px;
+	}
+	.header__desc {
+		font-size: 0.96rem;
+		font-weight: 400;
+		padding-right: 32px;
+		color: $GREY_513;
+		line-height: 1.45rem;
+	}
+}
+
+.form__section {
+	width: 100%;
+	margin-top: 8px;
+	margin-bottom: 12px;
+}
+
+/* Form */
+
+.label-wrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+	font-size: 1.0625rem;
+	color: $GREY_125;
+	height: 64px;
+	padding: 0;
+	margin-top: 16px;
+	margin-bottom: 12px;
+	border: 1px solid $BORDER_OUTLINE;
+	border-radius: 4px;
+	box-shadow: $OUTLINE_FOCUS_NONE;
+	transition: color, box-shadow, border-color,
+		$TRANSITION_SPEED $TRANSITION_EASE;
+	overflow: hidden;
+	cursor: text;
+
+	&:focus-within {
+		border-color: $GREY_513;
+		box-shadow: 0 0 0 3px rgba($GREY_125, 0.35);
+	}
+
+	&.error {
+		color: $ERROR_STATE;
+		border-color: $ERROR_STATE;
+
+		&:focus-within {
+			border-color: $ERROR_STATE;
+			box-shadow: 0 0 0 3px rgba($ERROR_STATE, 0.35);
+		}
+	}
+	&.success {
+		color: $SUCCESS_STATE;
+		border-color: $SUCCESS_STATE;
+
+		&:focus-within {
+			border-color: $SUCCESS_STATE;
+			box-shadow: 0 0 0 3px rgba($SUCCESS_STATE, 0.35);
+		}
+	}
+}
+
+.label__placeholder {
+	position: absolute;
+	font-weight: 400;
+	color: $GREY_125;
+	top: 50%;
+	left: 12px;
+	transform: translateY(-50%);
+	transition: all $TRANSITION_SPEED cubic-bezier(0.645, 0.045, 0.355, 1);
+
+	&.active {
+		font-size: 0.875rem;
+		top: 12px;
+		transform: translateY(0);
+	}
+}
+
+.label__input {
+	display: block;
+	font-size: 1.125;
+	color: rgba($DARK_GREY, 0.95);
+	font-size: 1.15rem;
+	line-height: 20px;
+	font-weight: 400;
+	letter-spacing: 0.02em;
+	width: 100%;
+	height: 100%;
+	padding-top: 32px;
+	padding-right: 56px;
+	padding-bottom: 8px;
+	padding-left: 12px;
+	margin: 0;
+	background: none;
+	border: none;
+	border-radius: 0;
+	outline: none;
+	appearance: none;
+}
+
+@keyframes label-icon-entry {
+	0% {
+		transform: translateY(150%);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(-50%);
+		opacity: 1;
+	}
+}
+.label-icon {
+	position: absolute;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	color: $SUCCESS_STATE;
+	top: 50%;
+	right: 20px;
+	transform: translateY(-50%);
+	pointer-events: none;
+
+	&.active {
+		display: flex;
+		animation: label-icon-entry 300ms forwards cubic-bezier(0.19, 1, 0.22, 1);
+	}
+}
+
+.toggle-view {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $DARK_GREY;
+	height: 40px;
+	width: 40px;
+	margin: 0;
+	top: 50%;
+	right: 10px;
+	border: none;
+	outline: none;
+	appearance: none;
+	background: none;
+	transform: translateY(-50%);
+	opacity: 0;
+	cursor: pointer;
+	transition: color $TRANSITION_SPEED ease, opacity 300ms ease;
+	z-index: 1;
+
+	&:hover,
+	&:focus-visible {
+		color: rgba($GREY_125, 0.75);
+	}
+}
+
+.error-label {
+	display: flex;
+	align-items: center;
+	font-size: 0.875rem;
+	color: rgba($ERROR_STATE, 0.75);
+	margin: 4px 0;
+	vertical-align: middle;
+	line-height: 1.35;
+
+	.icon {
+		margin-right: 4px;
+	}
+}
+
+/* Button */
+
+.btn {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 400;
+	color: #fff;
+	width: 100%;
+	height: 48px;
+	padding: 12px 32px;
+	margin-top: 16px;
+	margin-bottom: 16px;
+	float: right;
+	background-color: $DARK_GREY;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	box-shadow: $OUTLINE_FOCUS_NONE;
+	outline: none;
+	appearance: none;
+	user-select: none;
+	overflow: hidden;
+	transition: background-color $TRANSITION_SPEED $TRANSITION_EASE;
+
+	&:focus {
+		background-color: rgba($DARK_GREY, 0.95);
+		box-shadow: 0 0 0 3px rgba($DARK_GREY, 0.35);
+	}
+
+	&:hover {
+		cursor: pointer;
+		background-color: rgba($DARK_GREY, 0.95);
+	}
+}
+
+.btn-label {
+	letter-spacing: 0.045em;
+	user-select: none;
+}
+
+@keyframes btn-icon-entry {
+	0% {
+		transform: translateX(-150%) translateY(-50%);
+		opacity: 0;
+	}
+
+	33% {
+		transform: translateX(0) translateY(-50%);
+		opacity: 1;
+	}
+
+	70% {
+		transform: translateX(0) translateY(-50%);
+
+		opacity: 1;
+	}
+
+	100% {
+		transform: translateX(100%) translateY(-50%);
+		opacity: 0;
+	}
+}
+.btn-icon {
+	position: absolute;
+	display: none;
+	color: #fff;
+	right: 32px;
+	top: 55%;
+	opacity: 0;
+	animation: btn-icon-entry 2200ms both cubic-bezier(0.68, -0.55, 0.265, 1.55) 4;
+}
+
+.btn.ready {
+	.btn-icon {
+		display: block;
+	}
+}
+
+/* Others */
+
+@keyframes loader {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+.loader {
+	color: #000;
+	height: 90px;
+	animation: loader 800ms both cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes error-caution {
+	0% {
+		transform: translateX(0px);
+	}
+	20% {
+		transform: translateX(8px);
+	}
+	40% {
+		transform: translateX(-8px);
+	}
+	60% {
+		transform: translateX(4px);
+	}
+	90% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+.caution {
+	animation: error-caution 350ms both $TRANSITION_BOUNCE;
+}

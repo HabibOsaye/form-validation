@@ -1,0 +1,7 @@
+// focus: box-shadow
+$OUTLINE_FOCUS_NONE: 0 0 0 2px transparent;
+
+// transition
+$TRANSITION_SPEED: 175ms;
+$TRANSITION_BOUNCE: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$TRANSITION_EASE: cubic-bezier(0.215, 0.61, 0.355, 1);
