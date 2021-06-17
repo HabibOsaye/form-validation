@@ -1,7 +1,10 @@
 // font smoothing
 $FONT_SMOOTHING_MOZ: grayscale;
 $FONT_SMOOTHING_WEBKIT: antialiased;
+$FONT_SMOOTHING_WEBKIT: subpixel-antialiased;
 $FONT_SMOOTHING_RENDERING: optimizeSpeed;
+/* $FONT_TEXT-SIZE_ADJUST_WEBKIT: none; */
+/* -webkit-text-size-adjust: none; */
 
 // font
 $FALLBACK: -apple-system, BlinkMacSystemFont, Segoe UI, 'Helvetica Neue',
