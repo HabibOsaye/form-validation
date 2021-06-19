@@ -42,20 +42,20 @@ toggleButton.addEventListener('click', () => {
 		password.type = 'text'
 		toggleButton.ariaLabel = 'Hide password'
 		toggleButton.innerHTML = `
-			<svg class="icon icon-md" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px">
-					<path d="M0 0h24v24H0V0zm0 0h24v24H0V0zm0 0h24v24H0V0zm0 0h24v24H0V0z" fill="none" />
-					<path
-					d="M12 6.5c2.76 0 5 2.24 5 5 0 .51-.1 1-.24 1.46l3.06 3.06c1.39-1.23 2.49-2.77 3.18-4.53C21.27 7.11 17 4 12 4c-1.27 0-2.49.2-3.64.57l2.17 2.17c.47-.14.96-.24 1.47-.24zM2.71 3.16c-.39.39-.39 1.02 0 1.41l1.97 1.97C3.06 7.83 1.77 9.53 1 11.5 2.73 15.89 7 19 12 19c1.52 0 2.97-.3 4.31-.82l2.72 2.72c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L4.13 3.16c-.39-.39-1.03-.39-1.42 0zM12 16.5c-2.76 0-5-2.24-5-5 0-.77.18-1.5.49-2.14l1.57 1.57c-.03.18-.06.37-.06.57 0 1.66 1.34 3 3 3 .2 0 .38-.03.57-.07L14.14 16c-.65.32-1.37.5-2.14.5zm2.97-5.33c-.15-1.4-1.25-2.49-2.64-2.64l2.64 2.64z" />
-			</svg>`
+      <svg class="icon icon-md" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" role="presentation">
+          <path d="M0 0h24v24H0V0zm0 0h24v24H0V0zm0 0h24v24H0V0zm0 0h24v24H0V0z" fill="none" />
+          <path
+          d="M12 6.5c2.76 0 5 2.24 5 5 0 .51-.1 1-.24 1.46l3.06 3.06c1.39-1.23 2.49-2.77 3.18-4.53C21.27 7.11 17 4 12 4c-1.27 0-2.49.2-3.64.57l2.17 2.17c.47-.14.96-.24 1.47-.24zM2.71 3.16c-.39.39-.39 1.02 0 1.41l1.97 1.97C3.06 7.83 1.77 9.53 1 11.5 2.73 15.89 7 19 12 19c1.52 0 2.97-.3 4.31-.82l2.72 2.72c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L4.13 3.16c-.39-.39-1.03-.39-1.42 0zM12 16.5c-2.76 0-5-2.24-5-5 0-.77.18-1.5.49-2.14l1.57 1.57c-.03.18-.06.37-.06.57 0 1.66 1.34 3 3 3 .2 0 .38-.03.57-.07L14.14 16c-.65.32-1.37.5-2.14.5zm2.97-5.33c-.15-1.4-1.25-2.49-2.64-2.64l2.64 2.64z" />
+      </svg>`
 	} else {
 		password.type = 'password'
 		toggleButton.ariaLabel = 'Show password'
 		toggleButton.innerHTML = `
-			<svg class="icon icon-md" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px">
-					<path d="M0 0h24v24H0V0z" fill="none" />
-					<path
-					d="M12 4C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
-			</svg>`
+      <svg class="icon icon-md" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" role="presentation" >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+          d="M12 4C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+      </svg>`
 	}
 })
 
@@ -126,12 +126,12 @@ const setError = (element, id, message) => {
 		} else {
 			element.parentElement.insertAdjacentHTML(
 				`afterend`,
-				` <span id="${id}" class="error-label">
-					<svg class="icon icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-						<path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-					</svg>
-					${message}
-				</span>`
+				` <span id="${id}" class="error-label" aria-live="polite" >
+          <svg class="icon icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" role="presentation" >
+            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+          ${message}
+        </span>`
 			)
 		}
 	}
@@ -227,12 +227,13 @@ const autoPrefix = (value) => {
 username.addEventListener(`input`, function () {
 	/* Adds @ to start of string */
 	this.value = autoPrefix(username.value)
+
 	let value = this.value
 
 	if (isNull(value)) {
 		setError(username, `error-no-username`, `You need to enter your username.`)
 		removeError(username, `error-numbspace-username`)
-		removeError(username, `error-strict-username`)
+		removeError(username, `error-strict-char-username`)
 		return
 	} else {
 		removeError(username, `error-no-username`)
@@ -250,12 +251,12 @@ username.addEventListener(`input`, function () {
 	if (matchChar(value)) {
 		setError(
 			username,
-			`error-strict-username`,
+			`error-strict-char-username`,
 			`Can only have alphabets, numbers or underscores.`
 		)
 		return
 	} else {
-		removeError(username, `error-strict-username`)
+		removeError(username, `error-strict-char-username`)
 	}
 
 	/* Too long. Accounts for prefix placement */
@@ -437,14 +438,14 @@ const displayLoader = (element) => {
 	modal.insertAdjacentHTML(
 		`afterbegin`,
 		`	
-		<svg version="1.1" class="loader" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-  	y="0px" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
-  		<path fill="currentColor"
-    		d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
-    		<animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50"
-      	repeatCount="indefinite" />
-  		</path>
-		</svg>`
+    <svg version="1.1" class="loader" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+    y="0px" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+      <path fill="currentColor"
+        d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50"
+        repeatCount="indefinite" />
+      </path>
+    </svg>`
 	)
 
 	setTimeout(() => {
@@ -458,7 +459,7 @@ const setErrorCaution = (element) => {
 	const parentError = element.parentElement.classList.contains(`error`)
 
 	if (!labelError && element.value === '' && !parentError) {
-		setError(element, errorId, `Cannot leave field blank.`)
+		setError(element, errorId, `Cannot leave required field blank.`)
 		setCaution(element)
 	} else if (element.value === '' || !valid[element.name]) {
 		setCaution(element)
@@ -486,7 +487,7 @@ form.addEventListener(`submit`, (e) => {
 		console.log(data)
 	} else {
 		input.forEach((element) => {
-			/* Sets error caution on field if isValidSubmit() = false */
+			/* Sets caution on field if isValidSubmit() = false */
 			setErrorCaution(element)
 		})
 	}
